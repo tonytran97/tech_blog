@@ -27,5 +27,16 @@ Comments.belongsTo(Blog, {
     onDelete: 'CASCADE'
 });
 
+// linking the user to the comment, to see who posts what
+User.hasMany(Comments, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+});
+
+// a comment belongs to a single user
+Comments.belongsTo(User, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+});
 
 module.exports = { User, Blog, Comments };
