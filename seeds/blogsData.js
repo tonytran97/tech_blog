@@ -1,4 +1,4 @@
-const { blog } = require('../models');
+const { Blog } = require('../models');
 
 // sample blog posts for testing
 const blogPosts = [
@@ -7,6 +7,6 @@ const blogPosts = [
     {title: 'Blog Test 3', snippet: "This is blog test 3", user_id: 3},
 ];
 
-const seedBlogs = () => blog.bulkCreate(blogPosts);
+const seedBlogs = () => Blog.bulkCreate(blogPosts);
 
 module.exports = seedBlogs;

@@ -1,9 +1,15 @@
 const router = require('express').Router();
+const Blog = require('../models/blog');
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     try {
-    console.log('request received');
-    res.render('homepage');
+    const blogPosts = await Blog.findAll().catch((err) => {
+        res.json(err);
+    });
+    // console.log(blogPosts);
+    const blogs = blogPosts.map((blog) => blog.get({ plain: true }));
+    console.log(blogs);
+    res.render('homepage', { blogs });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
