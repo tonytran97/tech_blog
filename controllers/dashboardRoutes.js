@@ -3,9 +3,12 @@ const { Blog, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
+    console.log(req.session);
     try {
     const blogPosts = await Blog.findAll({
-        // how do i get posts by the user id
+        where: {
+            user_id: req.session.user_id,
+        },
             include: [
                 {
                     model: User, 
@@ -23,5 +26,14 @@ router.get('/', withAuth, async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+  // newPost route
+  router.get('/newpost', (req, res) => {
+    if (req.session.loggedIn) {
+      res.redirect('/');
+      return;
+    }
+    res.render('addPost');
+  });
 
 module.exports = router;

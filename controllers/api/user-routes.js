@@ -43,6 +43,8 @@ router.post('/login', async (req, res) => {
 
     req.session.save(() => {
       req.session.logged_in = true;
+      // saves the user_id which can be used to load up the dashboard later
+      req.session.user_id = userData.id;
       
       res.json({ user: userData, message: 'You are now logged in!' });
     });
