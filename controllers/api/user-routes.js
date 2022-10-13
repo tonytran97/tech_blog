@@ -5,7 +5,7 @@ const { User } = require('../../models');
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { username: req.body.username } });
-    console.log(req.body.username);
+    console.log(userData);
     if (!userData) {
       res
         .status(400)
@@ -14,7 +14,7 @@ router.post('/login', async (req, res) => {
     }
 
     const validPassword = await userData.checkPassword(req.body.password);
-console.log(req.body.password);
+    console.log(validPassword);
     if (!validPassword) {
       res
         .status(400)
@@ -30,6 +30,17 @@ console.log(req.body.password);
 
   } catch (err) {
     res.status(400).json(err);
+  }
+});
+
+// logout
+router.post('/logout', (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
   }
 });
 

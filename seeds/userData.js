@@ -7,6 +7,9 @@ const userData = [
     {username: 'UserThree', password: 'password3'},
 ];
 
-const seedUsers = () => User.bulkCreate(userData);
+// this allows for the hashing of our seeded passwords to allow us to login later
+const seedUsers = () => User.bulkCreate(userData, {
+    individualHooks: true
+});
 
 module.exports = seedUsers;
