@@ -8,6 +8,7 @@ router.post('/', withAuth, async (req, res) => {
     const dbPostData = await Blog.create({
       title: req.body.title,
       snippet: req.body.content,
+      user_id: req.session.user_id,
     });
 console.log(dbPostData);
     req.session.save(() => {
