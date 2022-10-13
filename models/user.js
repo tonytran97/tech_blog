@@ -25,6 +25,7 @@ User.init(
     password: {
       type: DataTypes.STRING,
       allowNull: false,
+      // password needs to be at least 8 characters long or else it throws the "failed to sign up error"
       validate: {
         len: [8],
       },
