@@ -4,16 +4,18 @@
   </div>
   <div class="card-body">
     <h5 class="card-title">Enter your Information below to get Logged In!</h5>
-    <form>
+    <form class="form login-form">
   <div class="mb-3">
-    <label for="exampleInputUsername" class="form-label">Username</label>
-    <input type="username" class="form-control" id="exampleInputUsername" aria-describedby="usernameHelp">
+    <label for="username-login" class="form-label">Username</label>
+    <input type="text" class="form-control" id="username-login">
   </div>
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+    <label for="password-login" class="form-label">Password</label>
+    <input type="password" class="form-control" id="password-login">
   </div>
   <button type="submit" class="btn btn-secondary">Sign In</button>
 </form>
 <p>Don't have an account? <a href="/signup">Sign Up Here</a></p>
 </div>
+
+<script src="../public/js/login.js"></script>

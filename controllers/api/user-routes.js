@@ -9,7 +9,7 @@ router.post('/login', async (req, res) => {
             username: req.body.username,
           },
         });
-
+console.log(dbUserData);
         if (!dbUserData) {
             res
               .status(400)
