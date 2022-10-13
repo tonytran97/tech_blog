@@ -20,6 +20,10 @@ Blog.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
+    post_date: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       // references the user model that we created
