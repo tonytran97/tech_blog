@@ -75,7 +75,7 @@ Technology used to build the application:
 
 ---
 
-[Demonstration Video](https://drive.google.com/file/d/1pn1rukwP1pT-2wufEYcNCjY9XzJAYgtC/view)
+[Link to Deployed Heroku](https://immense-shore-14214.herokuapp.com/)
 
 ## Authors
 
@@ -89,3 +89,5 @@ Technology used to build the application:
 ---
 
 This application was is not finished, still a work in progress. Missing features such as adding comments, editing posts, and deleting posts.
+
+Heroku Application is currently not working. Application Error, will fix issue eventually.
